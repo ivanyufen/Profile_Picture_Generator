@@ -1,17 +1,19 @@
 import React from 'react';
 
 class App extends React.Component {
-    state = { tempInput: "", inputUser: "" }
+    state = { tempInput: "", inputUser: "", randomNo: "" }
 
     getprofPict = () => {
+        //generate random number from 1 to 4
+        var random = Math.floor(Math.random() * (+5 - +1)) + +1;
         this.setState({
-            inputUser: this.state.tempInput
+            randomNo: random, inputUser: this.state.tempInput
         })
     }
 
     display() {
         return (
-            <img className="rounded-circle bg-white my-3" src={`https://robohash.org/${this.state.inputUser}.png`} />
+            <img className="rounded-circle bg-white my-3" src={`https://robohash.org/${this.state.inputUser}.png?set=set${this.state.randomNo}`} />
         )
     }
     render() {
